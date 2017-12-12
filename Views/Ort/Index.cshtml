@@ -1,0 +1,41 @@
+﻿@using MedienkurseTest2.Models.AccountViewModels;
+@model List<OrtViewModel>
+@{
+    ViewData["Title"] = "Ort | Index";
+}
+
+<h2>Show Orte</h2>
+<div class="row">
+    <div class="col-md-8">
+        @Html.ActionLink("Create", "Create", "Ort")
+        <table>
+            <tr>
+                <th>PLZ</th>
+                <th>Ort</th>
+                <th>Kanton</th>
+                <th>Show</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            @{
+                foreach (var ort in Model)
+                {
+                    <tr>
+                        <td>@ort.PLZ</td>
+                        <td>@ort.Name</td>
+                        <td>@ort.Kanton</td>
+                        <td>@Html.ActionLink("Show", "Show", "Ort", new { id = ort.Id })</td>
+                        <td>@Html.ActionLink("Edit", "Edit", "Ort", new { id = ort.Id })</td>
+                        <td>
+                            @using (Html.BeginForm("Destroy", "Ort", new { id = ort.Id }, FormMethod.Post))
+                            {
+                                <input type="submit" class="button button--primary button--full" value="Löschen" />
+                            }
+                        </td>
+                    </tr>
+
+                }
+            }
+        </table>
+    </div>
+</div>

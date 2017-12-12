@@ -1,0 +1,23 @@
+﻿@using MedienkurseTest2.Models.AccountViewModels;
+@model OrtViewModel
+@{
+    ViewData["Title"] = "Ort | Show";
+}
+
+<h2>Show Ort</h2>
+<div class="row">
+    <div class="col-md-8">
+       <table>
+           <tr>
+               <th>PLZ</th>
+               <th>Ort</th>
+               <th>Kanton</th>
+           </tr>
+           <tr>
+               <td>@Model.PLZ</td>
+               <td>@Model.Name</td>
+               <td>@Model.Kanton</td>
+           </tr>
+       </table>
+    </div>
+</div>
